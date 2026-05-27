@@ -1,0 +1,15 @@
+C:\Users\mlle franck\Documents\CombatTourParTour\CombatTourParTour\bin\Debug\net10.0\CombatTourParTour.exe
+C:\Users\mlle franck\Documents\CombatTourParTour\CombatTourParTour\bin\Debug\net10.0\CombatTourParTour.deps.json
+C:\Users\mlle franck\Documents\CombatTourParTour\CombatTourParTour\bin\Debug\net10.0\CombatTourParTour.runtimeconfig.json
+C:\Users\mlle franck\Documents\CombatTourParTour\CombatTourParTour\bin\Debug\net10.0\CombatTourParTour.dll
+C:\Users\mlle franck\Documents\CombatTourParTour\CombatTourParTour\bin\Debug\net10.0\CombatTourParTour.pdb
+C:\Users\mlle franck\Documents\CombatTourParTour\CombatTourParTour\obj\Debug\net10.0\CombatTourParTour.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mlle franck\Documents\CombatTourParTour\CombatTourParTour\obj\Debug\net10.0\CombatTourParTour.AssemblyInfoInputs.cache
+C:\Users\mlle franck\Documents\CombatTourParTour\CombatTourParTour\obj\Debug\net10.0\CombatTourParTour.AssemblyInfo.cs
+C:\Users\mlle franck\Documents\CombatTourParTour\CombatTourParTour\obj\Debug\net10.0\CombatTourParTour.csproj.CoreCompileInputs.cache
+C:\Users\mlle franck\Documents\CombatTourParTour\CombatTourParTour\obj\Debug\net10.0\CombatTourParTour.sourcelink.json
+C:\Users\mlle franck\Documents\CombatTourParTour\CombatTourParTour\obj\Debug\net10.0\CombatTourParTour.dll
+C:\Users\mlle franck\Documents\CombatTourParTour\CombatTourParTour\obj\Debug\net10.0\refint\CombatTourParTour.dll
+C:\Users\mlle franck\Documents\CombatTourParTour\CombatTourParTour\obj\Debug\net10.0\CombatTourParTour.pdb
+C:\Users\mlle franck\Documents\CombatTourParTour\CombatTourParTour\obj\Debug\net10.0\CombatTourParTour.genruntimeconfig.cache
+C:\Users\mlle franck\Documents\CombatTourParTour\CombatTourParTour\obj\Debug\net10.0\ref\CombatTourParTour.dll
