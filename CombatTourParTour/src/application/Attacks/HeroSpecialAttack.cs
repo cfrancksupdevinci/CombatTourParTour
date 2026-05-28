@@ -1,4 +1,4 @@
-public class SpecialAttack
+public class HeroSpecialAttack
 {
   public long Execute(Hero hero, Enemies enemy)
   {
@@ -42,5 +42,10 @@ public class SpecialAttack
   private static long RollThiefCritical()
   {
     //cooldown 2 tours et 30 % de chance d’infliger des dégâts critiques (dégâts × 2)
+    var hero = HeroFactory.GetHero();
+    var classe = hero.classe;
+    var damage = GetDamage(classe);
+    //30% de chance d'infliger des dégâts critiques (dégâts × 2) (à implémenter)
+    return (long)damage;
   }
 }

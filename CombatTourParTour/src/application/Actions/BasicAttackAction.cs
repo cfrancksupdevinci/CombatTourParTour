@@ -1,10 +1,8 @@
 public class BasicAttackAction
 {
-  public BasicAttackAction()
+  public long Execute(Hero hero, Enemies enemy)
   {
-    BasicAttack basicAttack = new BasicAttack();
-    var hero = HeroFactory.GetHero();
-    var enemy = EnemyFactory();
+    var basicAttack = new HeroBasicAttack();
     return basicAttack.Execute(hero, enemy);
   }
 }

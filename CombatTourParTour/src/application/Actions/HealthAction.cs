@@ -1,8 +1,6 @@
 public class HealthAction()
 {
   //Intialisize the Heal
-  public HealthAction(int id,)
-  { }
 
   //add pv in actual_pv of hero
 

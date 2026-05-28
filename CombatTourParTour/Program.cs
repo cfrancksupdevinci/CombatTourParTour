@@ -8,7 +8,7 @@ namespace MyApplication
       var hero = flow.Execute();
       Console.WriteLine($"Hero created: {hero.name} ({hero.classe})");
       var attackFlow = new AttackFlow();
-      var attack = attackFlow.Execute();
+      var attack = attackFlow.Execute(hero);
     }
   }
 }

@@ -1,4 +1,4 @@
-public class BasicAttack
+public class HeroBasicAttack
 {
   public long Execute(Hero hero, Enemies enemy)
   {

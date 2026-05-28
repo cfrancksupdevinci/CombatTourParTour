@@ -1,9 +1,16 @@
 public class AttackFlow
 {
-  public Waves Execute()
+  public Waves Execute(Hero hero)
   {
-    var enemy1 = new Waves();
-    enemy1.Enemy1();
-    return enemy1;
+    var waves = new Waves(hero);
+    waves.CombatWon += () => Console.WriteLine("Combat won");
+    waves.CombatLost += () => Console.WriteLine("Combat lost");
+
+    while (!waves.IsFinished)
+    {
+      waves.ExecuteState();
+    }
+
+    return waves;
   }
 }
