@@ -8,6 +8,15 @@ public enum HeroCommandChoice
 
 public static class HeroCommands
 {
+  private static readonly IReadOnlyDictionary<HeroCommandChoice, Action<Waves>> CommandMap =
+    new Dictionary<HeroCommandChoice, Action<Waves>>
+    {
+      [HeroCommandChoice.BasicAttack] = context => context.HeroBasicAttack(),
+      [HeroCommandChoice.SpecialAttack] = context => context.HeroSpecialAttack(),
+      [HeroCommandChoice.Heal] = context => context.HeroHeal(),
+      [HeroCommandChoice.Journal] = context => context.ShowJournal(),
+    };
+
   public static HeroCommandChoice Choose()
   {
     while (true)
@@ -30,22 +39,12 @@ public static class HeroCommands
 
   public static void Execute(HeroCommandChoice choice, Waves context)
   {
-    switch (choice)
+    if (CommandMap.TryGetValue(choice, out var command))
     {
-      case HeroCommandChoice.BasicAttack:
-        context.HeroBasicAttack();
-        break;
-      case HeroCommandChoice.SpecialAttack:
-        context.HeroSpecialAttack();
-        break;
-      case HeroCommandChoice.Heal:
-        context.HeroHeal();
-        break;
-      case HeroCommandChoice.Journal:
-        context.ShowJournal();
-        break;
-      default:
-        throw new ArgumentOutOfRangeException(nameof(choice));
+      command(context);
+      return;
     }
+
+    throw new ArgumentOutOfRangeException(nameof(choice));
   }
 }

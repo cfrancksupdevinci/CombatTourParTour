@@ -7,7 +7,7 @@ public class HeroTurnState : ICombatState
     this.hero = hero;
   }
 
-  public string Name => hero.name + "'s Turn";
+  public string Name => hero.name + "Turn";
 
   public void Execute(Waves context)
   {

@@ -1,5 +1,6 @@
 public class HeroSpecialAttack
 {
+
   public long Execute(Hero hero, Enemies enemy)
   {
     long damage = GetDamage(hero.classe);
@@ -21,31 +22,18 @@ public class HeroSpecialAttack
 
   private static long RollWarriorCritical()
   {
-    var hero = HeroFactory.GetHero();
-    var classe = hero.classe;
-    var damage = GetDamage(classe) * 1.5;
-    return (long)damage;
-
-    //cooldown 2 tours
+    return (long)(AttackDamageConstants.WarriorBaseDamage * 1.5);
   }
 
   private static long RollMageCritical()
   {
-    // dégâts magiques fixes + ignore 50 % de l’armure ennemie, cooldown 3 tours
-    var hero = HeroFactory.GetHero();
-    var classe = hero.classe;
-    var damage = GetDamage(classe);
-    //Ignor 50% de l'armure ennemie (à implémenter dans la classe Enemy)
-    return (long)damage;
+    return (long)(AttackDamageConstants.MageBaseDamage);
+    //Ignore 50% de l'armure ennemie (à implémenter dans la classe Enemy)
   }
 
   private static long RollThiefCritical()
   {
-    //cooldown 2 tours et 30 % de chance d’infliger des dégâts critiques (dégâts × 2)
-    var hero = HeroFactory.GetHero();
-    var classe = hero.classe;
-    var damage = GetDamage(classe);
-    //30% de chance d'infliger des dégâts critiques (dégâts × 2) (à implémenter)
-    return (long)damage;
+    bool isCritical = Random.Shared.NextDouble() < 0.30;
+    return isCritical ? AttackDamageConstants.ThiefBaseDamage * 2 : AttackDamageConstants.ThiefBaseDamage;
   }
 }

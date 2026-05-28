@@ -101,6 +101,8 @@ public class Waves
     long healed = 25;
     long newPv = hero.actual_pv + healed;
     hero.actual_pv = newPv > maxPv ? maxPv : newPv;
+    IRemainingCare remainingCare = new RemainingCare(hero);
+    remainingCare.Execute(this);
     Console.WriteLine($"{hero.name} heals for {healed} PV. PV: {hero.actual_pv}/{maxPv}");
     journal.Add($"{hero.name} healed for {healed} PV.");
     return healed;

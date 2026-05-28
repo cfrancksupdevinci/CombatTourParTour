@@ -12,9 +12,10 @@ public class HeroBasicAttack
   {
     return classe switch
     {
-      Classes.Warrior => 18,
-      Classes.Mage => 12,
-      Classes.Thief => 14,
+      Classes.Warrior => AttackDamageConstants.WarriorBaseDamage,
+      Classes.Mage => AttackDamageConstants.MageBaseDamage,
+      Classes.Thief => AttackDamageConstants.ThiefBaseDamage,
+      _ => 0,
     };
   }
 }

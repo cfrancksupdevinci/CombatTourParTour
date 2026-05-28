@@ -1,7 +1,3 @@
-
-
-using System.Reflection.Emit;
-
 public class Hero
 {
   public int id;
