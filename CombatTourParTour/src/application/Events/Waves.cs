@@ -20,14 +20,12 @@ public class Waves
     currentState = new HeroTurnState(hero);
   }
 
-  public bool IsFinished { get; private set; }
+  public bool IsCombatOver { get; private set; }
   public int WaveNumber => waveNumber;
-  public Hero Hero => hero;
-  public Enemies? Enemy => enemy;
 
   public void ExecuteState()
   {
-    if (IsFinished)
+    if (IsCombatOver)
     {
       return;
     }
@@ -40,9 +38,9 @@ public class Waves
     currentState = state;
   }
 
-  public void MarkFinished()
+  public void EndCombat()
   {
-    IsFinished = true;
+    IsCombatOver = true;
   }
 
   public void NotifyHeroTurnEnded()

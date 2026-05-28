@@ -6,6 +6,6 @@ public class VictoryState : ICombatState
   {
     Console.WriteLine("Victory! All waves are defeated.");
     context.NotifyVictory();
-    context.MarkFinished();
+    context.EndCombat();
   }
 }

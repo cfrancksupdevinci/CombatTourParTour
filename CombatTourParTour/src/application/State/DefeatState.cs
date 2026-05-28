@@ -6,6 +6,6 @@ public class DefeatState : ICombatState
   {
     Console.WriteLine("Loose... The hero has fallen.");
     context.NotifyDefeat();
-    context.MarkFinished();
+    context.EndCombat();
   }
 }

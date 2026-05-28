@@ -6,7 +6,7 @@ public class AttackFlow
     waves.CombatWon += () => Console.WriteLine("Combat won");
     waves.CombatLost += () => Console.WriteLine("Combat lost");
 
-    while (!waves.IsFinished)
+    while (!waves.IsCombatOver)
     {
       waves.ExecuteState();
     }
