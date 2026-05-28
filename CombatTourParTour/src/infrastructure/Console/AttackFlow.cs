@@ -1,9 +1,9 @@
 public class AttackFlow
 {
-  public Enemy1 Execute()
+  public Waves Execute()
   {
-    var enemy1 = new Enemy1();
+    var enemy1 = new Waves();
+    enemy1.Enemy1();
     return enemy1;
   }
-
 }
