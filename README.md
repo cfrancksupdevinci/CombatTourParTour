@@ -9,4 +9,4 @@ CombatTourParTour est un jeu de rôle en console en C# : le joueur incarne un h�
 - Strategy pour les actions joueurs et l'IA
 - Factory pour créer les Hero et ennemies
 - Observer pour le journal
-- Prototype pour clonner les ennemies et mieux gérer leur pv_max et pv_actuel. ?
+- Prototype pour clonner les ennemies lors de la vague 2 ?

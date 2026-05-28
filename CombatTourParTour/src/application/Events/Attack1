@@ -1,0 +1,7 @@
+abstract void Attack1()
+{
+  var enemy = EnemyFactory.CreateStandard(1);
+  Console.WriteLine($"Enemy Name: {enemy.Name}");
+  Console.WriteLine($"Enemy PV: {enemy.actual_pv}/{enemy.max_pv}");
+
+}

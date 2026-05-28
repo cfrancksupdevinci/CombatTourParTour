@@ -9,4 +9,5 @@ public class EnemyFactory
   {
     return new Enemies(id, "Boss", 100, 100, 5);
   }
+
 }
