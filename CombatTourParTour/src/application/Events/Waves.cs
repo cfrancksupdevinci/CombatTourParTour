@@ -3,6 +3,7 @@ public class Waves
   private readonly Hero hero;
   private Enemies enemy = null!;
   private ICombatState currentState;
+  private bool combatIsOver;
   private int waveNumber;
   private readonly List<string> journal = new();
 
@@ -17,12 +18,16 @@ public class Waves
     currentState = new HeroTurnState(hero);
   }
 
-  public bool IsCombatOver { get; private set; }
   public int WaveNumber => waveNumber;
+
+  public bool IsCombatOver()
+  {
+    return combatIsOver;
+  }
 
   public void ExecuteState()
   {
-    if (IsCombatOver)
+    if (combatIsOver)
     {
       return;
     }
@@ -37,7 +42,7 @@ public class Waves
 
   public void EndCombat()
   {
-    IsCombatOver = true;
+    combatIsOver = true;
   }
 
   public void NotifyVictory()
