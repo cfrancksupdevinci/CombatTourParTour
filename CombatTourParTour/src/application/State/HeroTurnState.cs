@@ -7,11 +7,11 @@ public class HeroTurnState : ICombatState
     this.hero = hero;
   }
 
-  public string Name => hero.name + "Turn";
+  public string LabelHeroTurn => hero.name + "Turn";
 
   public void Execute(Waves context)
   {
-    Console.WriteLine($"{Name}");
+    Console.WriteLine(LabelHeroTurn);
     var choice = HeroCommands.Choose();
     HeroCommands.Execute(choice, context);
 

@@ -1,10 +1,10 @@
 public class EnemyTurnState : ICombatState
 {
-  public string Name => "EnemyTurn";
+  public string LabelEnemyTurn => "EnemyTurn";
 
   public void Execute(Waves context)
   {
-    Console.WriteLine(Name);
+    Console.WriteLine(LabelEnemyTurn);
     context.EnemyAttackHero();
 
     if (context.IsHeroDead())
