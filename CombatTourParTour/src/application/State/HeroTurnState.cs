@@ -13,7 +13,7 @@ public class HeroTurnState : ICombatState
   {
     Console.WriteLine(LabelHeroTurn);
     var choice = HeroCommands.Choose();
-    HeroCommands.Execute(choice, context);
+    HeroCommands.Execute(choice, context.Hero, context.Enemy, context.Journal);
 
     if (context.IsEnemyDead())
     {

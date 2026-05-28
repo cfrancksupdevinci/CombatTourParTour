@@ -5,7 +5,7 @@ public class EnemyTurnState : ICombatState
   public void Execute(Waves context)
   {
     Console.WriteLine(LabelEnemyTurn);
-    context.EnemyAttackHero();
+    CombatActions.EnemyAttackHero(context.Hero, context.Enemy);
 
     if (context.IsHeroDead())
     {
@@ -13,6 +13,6 @@ public class EnemyTurnState : ICombatState
       return;
     }
 
-    context.SetState(new HeroTurnState(hero: HeroFactory.GetHero()));
+    context.SetState(new HeroTurnState(hero: context.Hero));
   }
 }

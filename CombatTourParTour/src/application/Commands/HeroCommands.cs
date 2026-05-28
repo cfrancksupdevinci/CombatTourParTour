@@ -8,13 +8,13 @@ public enum HeroCommandChoice
 
 public static class HeroCommands
 {
-  private static readonly IReadOnlyDictionary<HeroCommandChoice, Action<Waves>> CommandMap =
-    new Dictionary<HeroCommandChoice, Action<Waves>>
+  private static readonly IReadOnlyDictionary<HeroCommandChoice, Action<Hero, Enemies, List<string>>> CommandMap =
+    new Dictionary<HeroCommandChoice, Action<Hero, Enemies, List<string>>>
     {
-      [HeroCommandChoice.BasicAttack] = context => context.HeroBasicAttack(),
-      [HeroCommandChoice.SpecialAttack] = context => context.HeroSpecialAttack(),
-      [HeroCommandChoice.Heal] = context => context.HeroHeal(),
-      [HeroCommandChoice.Journal] = context => context.ShowJournal(),
+      [HeroCommandChoice.BasicAttack] = (hero, enemy, journal) => CombatActions.HeroBasicAttack(hero, enemy, journal),
+      [HeroCommandChoice.SpecialAttack] = (hero, enemy, journal) => CombatActions.HeroSpecialAttack(hero, enemy, journal),
+      [HeroCommandChoice.Heal] = (hero, _, journal) => CombatActions.HeroHeal(hero, journal),
+      [HeroCommandChoice.Journal] = (_, _, journal) => CombatActions.ShowJournal(journal),
     };
 
   public static HeroCommandChoice Choose()
@@ -37,11 +37,11 @@ public static class HeroCommands
     }
   }
 
-  public static void Execute(HeroCommandChoice choice, Waves context)
+  public static void Execute(HeroCommandChoice choice, Hero hero, Enemies enemy, List<string> journal)
   {
     if (CommandMap.TryGetValue(choice, out var command))
     {
-      command(context);
+      command(hero, enemy, journal);
       return;
     }
 

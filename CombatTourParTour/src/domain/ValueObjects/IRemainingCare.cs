@@ -1,6 +1,6 @@
 public interface IRemainingCare
 {
-  void Execute(Waves context);
+  void Execute();
 }
 
 public class RemainingCare : IRemainingCare
@@ -12,7 +12,7 @@ public class RemainingCare : IRemainingCare
     this.hero = hero;
   }
 
-  public void Execute(Waves context)
+  public void Execute()
   {
     if (hero.remaining_care <= 0)
     {
