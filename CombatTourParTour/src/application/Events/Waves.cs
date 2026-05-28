@@ -17,10 +17,7 @@ public class Waves
     CreateEnemy(waveNumber);
     currentState = new HeroTurnState(hero);
   }
-
-  public int WaveNumber => waveNumber;
-
-  public bool IsCombatOver()
+  public bool CombatIsOver()
   {
     return combatIsOver;
   }
