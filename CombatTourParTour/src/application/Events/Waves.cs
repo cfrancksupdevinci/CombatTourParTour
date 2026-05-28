@@ -1,14 +1,11 @@
 public class Waves
 {
   private readonly Hero hero;
-  private Enemies? enemy;
+  private Enemies enemy = null!;
   private ICombatState currentState;
   private int waveNumber;
   private readonly List<string> journal = new();
 
-  public event Action<int>? WaveStarted;
-  public event Action? HeroTurnEnded;
-  public event Action? EnemyTurnEnded;
   public event Action? CombatWon;
   public event Action? CombatLost;
 
@@ -43,16 +40,6 @@ public class Waves
     IsCombatOver = true;
   }
 
-  public void NotifyHeroTurnEnded()
-  {
-    HeroTurnEnded?.Invoke();
-  }
-
-  public void NotifyEnemyTurnEnded()
-  {
-    EnemyTurnEnded?.Invoke();
-  }
-
   public void NotifyVictory()
   {
     CombatWon?.Invoke();
@@ -65,11 +52,6 @@ public class Waves
 
   public long HeroBasicAttack()
   {
-    if (enemy is null)
-    {
-      return 0;
-    }
-
     var attack = new HeroBasicAttack();
     long damage = attack.Execute(hero, enemy);
     Console.WriteLine($"{hero.name} attacks {enemy.name} and deals {damage} damage.");
@@ -80,11 +62,6 @@ public class Waves
 
   public long HeroSpecialAttack()
   {
-    if (enemy is null)
-    {
-      return 0;
-    }
-
     var attack = new HeroSpecialAttack();
     long damage = attack.Execute(hero, enemy);
     Console.WriteLine($"{hero.name} uses their special ability on {enemy.name} and deals {damage} damage.");
@@ -124,11 +101,6 @@ public class Waves
 
   public long EnemyAttackHero()
   {
-    if (enemy is null)
-    {
-      return 0;
-    }
-
     long damage = enemy.damage;
     long newPv = hero.actual_pv - damage;
     hero.actual_pv = newPv < 0 ? 0 : newPv;
@@ -137,15 +109,9 @@ public class Waves
     return damage;
   }
 
-  public bool IsHeroDead()
-  {
-    return hero.actual_pv <= 0;
-  }
+  public bool IsHeroDead() => hero.actual_pv <= 0;
 
-  public bool IsEnemyDead()
-  {
-    return enemy is null || enemy.actual_pv <= 0;
-  }
+  public bool IsEnemyDead() => enemy.actual_pv <= 0;
 
   public bool TryMoveToNextWave()
   {
@@ -172,7 +138,6 @@ public class Waves
 
     Console.WriteLine($"Enemy Name: {enemy.name}");
     Console.WriteLine($"Enemy PV: {enemy.actual_pv}/{enemy.pv_max}");
-    WaveStarted?.Invoke(waveNumber);
     journal.Add($"A new wave has started: {enemy.name}.");
   }
 

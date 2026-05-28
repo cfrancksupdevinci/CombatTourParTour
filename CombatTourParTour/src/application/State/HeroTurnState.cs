@@ -14,7 +14,6 @@ public class HeroTurnState : ICombatState
     Console.WriteLine($"{Name}");
     var choice = HeroCommands.Choose();
     HeroCommands.Execute(choice, context);
-    context.NotifyHeroTurnEnded();
 
     if (context.IsEnemyDead())
     {

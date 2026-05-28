@@ -6,7 +6,6 @@ public class EnemyTurnState : ICombatState
   {
     Console.WriteLine(Name);
     context.EnemyAttackHero();
-    context.NotifyEnemyTurnEnded();
 
     if (context.IsHeroDead())
     {
