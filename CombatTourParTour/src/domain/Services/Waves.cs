@@ -1,3 +1,4 @@
+
 public class Waves
 {
   private int waveNumber;
@@ -6,14 +7,10 @@ public class Waves
   private Enemies enemy = null!;
   private readonly Hero hero;
   private readonly List<string> journal = new();
-
   public event Action? CombatWon;
   public event Action? CombatLost;
-
   public Hero Hero => hero;
-
   public Enemies Enemy => enemy;
-
   public List<string> Journal => journal;
 
   public Waves(Hero hero)
@@ -22,11 +19,6 @@ public class Waves
     waveNumber = 1;
     CreateEnemy(waveNumber);
     currentState = new HeroTurnState(hero);
-  }
-
-  public bool CombatIsOver()
-  {
-    return combatIsOver;
   }
 
   public void ExecuteState()
@@ -39,14 +31,17 @@ public class Waves
     currentState.Execute(this);
   }
 
+  public void RunUntilFinished()
+  {
+    while (!combatIsOver)
+    {
+      ExecuteState();
+    }
+  }
+
   public void SetState(ICombatState state)
   {
     currentState = state;
-  }
-
-  public void EndCombat()
-  {
-    combatIsOver = true;
   }
 
   public bool TryMoveToNextWave()
@@ -76,13 +71,16 @@ public class Waves
     journal.Add($"A new wave has started: {enemy.name}.");
   }
 
-  public void NotifyVictory()
+  public void CompleteCombat(bool isVictory)
   {
-    CombatWon?.Invoke();
-  }
+    combatIsOver = true;
 
-  public void NotifyDefeat()
-  {
+    if (isVictory)
+    {
+      CombatWon?.Invoke();
+      return;
+    }
+
     CombatLost?.Invoke();
   }
 
