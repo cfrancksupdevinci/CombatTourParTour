@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CombatTourParTour")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+71251ddf126876d7cba5a6cbb7095cd966ae6b58")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+752429a9e1dc1763ea0ba711b520fa0f754d7ebe")]
 [assembly: System.Reflection.AssemblyProductAttribute("CombatTourParTour")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CombatTourParTour")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
